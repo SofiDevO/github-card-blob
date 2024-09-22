@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", system-ui;
+    background: #040d1d;
+    color: white;
+}
+
+.hero {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    min-height: 100dvh;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 2rem;
+}
+
+.card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: #00000091;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 30rem;
+    min-height: 20rem;
+    border-radius: 15px;
+    z-index: 20;
+    border: solid 1px #4de1ff76;
+    box-shadow: inset 0 0 10px #70fffd75;
+    padding: 1rem;
+
+    & h1 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        text-align: center;
+        background: radial-gradient(circle, rgba(40, 255, 187, 1) 0%, rgba(114, 0, 232, 1)100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+    }
+
+    & img {
+        width: 100%;
+        height: 100%;
+        max-width: 150px;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .profile-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .profile-info{
+        display: flex;
+        flex-direction: column;
+        flex:1;
+        min-width: 200px;
+        gap: 1rem;
+        text-align: left;
+        & h4{
+            color:aqua
+        }
+        & a{
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 11px;
+            max-width: 10rem;
+            background: linear-gradient(45deg, #4332ad, #26c4c2bd);
+            padding: .5rem;;
+            transition: transform .1s ease-in-out;
+            &:hover{
+                transform: scale(1.1);
+                background: linear-gradient(45deg, #4e0a9b, #06206f9e);
+            }
+        }
+    }
+}
+/* Animation blob 👇🏻 */
+
+.blob{
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(149,0,240,1)100%);
+    border-radius: 72% 28% 31% 69% / 34% 50% 50% 66% ;
+    box-shadow: inset 0 0  10px #000000c0;
+    mix-blend-mode:screen;
+    animation:blobGelatina 14s linear infinite alternate forwards, blobMove 14s linear infinite alternate, colorChange 10s cubic-bezier(0.2, 0.86, 0.83, 0.33) infinite forwards;
+
+}
+
+@keyframes blobGelatina {
+    0%{
+        border-radius: 72% 28% 31% 69% / 34% 50% 50% 66% ;
+    }
+    15%{
+        border-radius: 57% 43% 62% 38% / 46% 17% 83% 54%  ;
+    }
+    25%{
+        border-radius: 24% 76% 33% 67% / 58% 74% 26% 42% ;
+    }
+    50%{
+        border-radius: 64% 36% 73% 27% / 22% 74% 26% 78% ;
+    }
+    75%{
+        border-radius: 23% 77% 39% 61% / 56% 36% 64% 44% ;
+    }
+    80%{
+        border-radius: 39% 61% 89% 11% / 78% 67% 33% 22% ;
+    }
+    100%{
+        border-radius: 86% 14% 37% 63% / 36% 79% 21% 64% ;
+    }
+}
+@keyframes blobMove {
+    from{
+        transform:translate(-8vw, -50px) rotate(0deg);
+    }
+    to{
+        transform: translate(80vw, 182px) rotate(-90deg);
+    }
+}
+
+@keyframes colorChange {
+    0%{
+        background: linear-gradient(49deg, rgb(174 96 255) 0%, #f40000 100%);
+
+    }
+    50%{
+        background: linear-gradient(90deg, rgba(14,0,120,1) 0%, rgba(150,51,255,1) 100%);
+
+    }
+    100%{
+        background: linear-gradient(331deg, rgba(70,0,120,1) 22%, rgba(51,255,99,1) 100%);
+    }
+}
